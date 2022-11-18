@@ -43,11 +43,11 @@ function Header({ type }) {
     });
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const handlesearch = () =>{
-    navigate("/hotels",{ state:{searchVal,option,date}})
-  }
+  const handlesearch = () => {
+    navigate("/hotels", { state: { searchVal, option, date } });
+  };
   return (
     <Container>
       <Heading>
@@ -120,14 +120,19 @@ function Header({ type }) {
               )}
             </Date>
             <Category>
-              <GiPerson
-                size="1.52rem"
-                color="grey"
-                onClick={() => setShowOption(!showOption)}
-              />
+              <GiPerson size="1.52rem" color="grey" />
               <span>
-                <p>{option.adult} Adult</p> • <p>{option.children} Children</p>{" "}
-                • <p>{option.room} room</p>
+                <p onClick={() => setShowOption(!showOption)}>
+                  {option.adult} Adult
+                </p>{" "}
+                •{" "}
+                <p onClick={() => setShowOption(!showOption)}>
+                  {option.children} Children
+                </p>{" "}
+                •{" "}
+                <p onClick={() => setShowOption(!showOption)}>
+                  {option.room} room
+                </p>
               </span>
               {showOption && (
                 <Options
@@ -176,8 +181,105 @@ function Header({ type }) {
               )}
             </Category>
 
-            <button className="submit" onClick={handlesearch}>search</button>
+            <button className="submit" onClick={handlesearch}>
+              search
+            </button>
           </HeaderSearch>
+          <HeaderSearchMobile>
+            <div className="input">
+              <input
+                type="text"
+                value={searchVal}
+                onChange={(e) => setSearchVal(e.target.value)}
+                placeholder="Where are you going"
+              />
+            </div>
+
+            <div className="datee">
+              <span onClick={() => setShowDate(!showDate)}>
+                {format(date[0].startDate, "MM/dd/yyyy")}
+              </span>
+              <span onClick={() => setShowDate(!showDate)}>
+                {format(date[0].endDate, "MM/dd/yyyy")}
+              </span>
+              {showDate && (
+                <DateRange
+                  editableDateInputs={true}
+                  onChange={(item) => setDate([item.selection])}
+                  moveRangeOnFirstSelection={false}
+                  minDate={new window.Date()}
+                  ranges={date}
+                  orientation="horizontal"
+                  className="dateMobile"
+                />
+              )}
+            </div>
+
+            <div className="options">
+              <span>
+                <p onClick={() => setShowOption(!showOption)}>
+                  {option.adult} Adult
+                </p>{" "}
+                •{" "}
+                <p onClick={() => setShowOption(!showOption)}>
+                  {option.children} Children
+                </p>{" "}
+                •{" "}
+                <p onClick={() => setShowOption(!showOption)}>
+                  {option.room} room
+                </p>
+              </span>
+              {showOption && (
+                <OptionsMobile
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1 }}
+                >
+                  <Select>
+                    <Left>Adults</Left>
+                    <Right>
+                      <button onClick={() => add("adult", "d")}>
+                        <AiOutlineMinus />
+                      </button>
+                      <p>{option.adult}</p>
+                      <button onClick={() => add("adult", "i")}>
+                        <BsPlusLg />
+                      </button>
+                    </Right>
+                  </Select>
+                  <Select>
+                    <Left>Children</Left>
+                    <Right>
+                      <button onClick={() => add("children", "d")}>
+                        <AiOutlineMinus />
+                      </button>
+                      <p>{option.children}</p>
+                      <button onClick={() => add("children", "i")}>
+                        <BsPlusLg />
+                      </button>
+                    </Right>
+                  </Select>
+                  <Select>
+                    <Left>Room</Left>
+                    <Right>
+                      <button onClick={() => add("room", "d")}>
+                        <AiOutlineMinus />
+                      </button>
+                      <p>{option.room}</p>
+                      <button onClick={() => add("room", "i")}>
+                        <BsPlusLg />
+                      </button>
+                    </Right>
+                  </Select>
+                </OptionsMobile>
+              )}
+            </div>
+
+            <button className="submitMobile" onClick={handlesearch}>
+              search
+            </button>
+          </HeaderSearchMobile>
         </>
       )}
     </Container>
@@ -186,11 +288,17 @@ function Header({ type }) {
 
 export default Header;
 const Container = styled.div`
+  @media (max-width: 768px) {
+    background: white;
+  }
   width: 100%;
   background: #00224f;
   position: relative;
 `;
 const Heading = styled.div`
+  @media (max-width: 768px) {
+    display: none;
+  }
   width: 100%;
   height: 20vh;
   background: #00224f;
@@ -215,18 +323,31 @@ const HeaderItems = styled.div`
 `;
 
 const HeaderBanner = styled.div`
+  @media (max-width: 768px) {
+    padding: 5% 2%;
+    height: auto;
+  }
   width: 100%;
   height: 40vh;
   padding: 0% 2%;
   background: #00224f;
   color: #fff;
   h2 {
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
     font-size: 2vw;
     font-weight: 500;
     margin-top: 2%;
   }
   p {
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+      margin-top: 3%;
+      width: 100%;
+    }
     margin-top: 1%;
+    width: 40%;
     font-size: 1.5vw;
     font-weight: 500;
     span {
@@ -237,6 +358,11 @@ const HeaderBanner = styled.div`
     }
   }
   button {
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+      width: 45%;
+      margin-top: 5%;
+    }
     margin-top: 2%;
     width: 15%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -253,6 +379,9 @@ const HeaderBanner = styled.div`
 `;
 
 const HeaderSearch = styled.div`
+  @media (max-width: 768px) {
+    display: none;
+  }
   width: 90%;
   height: 10vh;
   border: 4px solid gold;
@@ -265,7 +394,7 @@ const HeaderSearch = styled.div`
   bottom: -6%;
   background: #fff;
   color: grey;
-  .submit{
+  .submit {
     width: 10%;
     margin-right: 2%;
     height: 6vh;
@@ -344,6 +473,10 @@ const Options = styled(motion.div)`
   z-index: 9090999;
 `;
 const Select = styled.div`
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    font-weight: 800;
+  }
   width: 100%;
   height: 8vh;
   display: flex;
@@ -369,4 +502,98 @@ const Right = styled.div`
     border: 1px solid #00224f;
     background: white;
   }
+`;
+
+const HeaderSearchMobile = styled.div`
+  display: none;
+  width: 95%;
+  margin: auto;
+  padding: 5% 2%;
+  background: gold;
+  margin-top: 5%;
+  @media (max-width: 768px) {
+    display: block;
+  }
+  .input {
+    width: 100%;
+    margin: auto;
+    input {
+      width: 100%;
+      padding: 2%;
+      height: 8vh;
+      border: none;
+      color: #000;
+      font-size: 1.5rem;
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        color: grey;
+        font-size: 1rem;
+      }
+    }
+  }
+  .datee {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3%;
+    position: relative;
+    span {
+      width: 48%;
+      height: 8vh;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .dateMobile {
+    position: absolute;
+    background: #fff;
+    top: 80px;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+      rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  }
+  .options {
+    width: 100%;
+    margin: auto;
+    margin-top: 3%;
+    background: #fff;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    padding: 5%;
+    span {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  .submitMobile {
+    width: 100%;
+    height: 8vh;
+    color: white;
+    background: #00224f;
+    border: none;
+    font-size: 1.2rem;
+    margin-top: 5%;
+    cursor: pointer;
+  }
+`;
+const OptionsMobile = styled.div`
+  width: 80%;
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  position: absolute;
+  top: 90%;
+  padding: 2% 0%;
+  color: black;
+  font-size: 1.2vw;
+  background: #fff;
+  z-index: 9090999;
 `;

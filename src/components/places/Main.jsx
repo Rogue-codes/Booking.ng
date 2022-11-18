@@ -81,14 +81,24 @@ function Main() {
 export default Main;
 
 const Container = styled.div`
+  @media (max-width: 768px) {
+    min-height: auto;
+  }
   width: 100%;
-  min-height: 100vh;
-  h1{
+  min-height: auto;
+  margin-bottom: 5%;
+  h1 {
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
     margin-left: 5%;
     margin-top: 2%;
   }
 `;
 const MainContainer = styled.div`
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
   width: 90%;
   margin: auto;
   display: flex;
@@ -96,8 +106,12 @@ const MainContainer = styled.div`
   align-items: center;
 `;
 const Card = styled.div`
+  @media (max-width: 768px) {
+    min-width: 49%;
+    margin-bottom: 4%;
+  }
   width: 23%;
-  height: 60vh;
+  height: auto;
   margin-top: 2%;
 `;
 const Top = styled.div`
@@ -114,6 +128,9 @@ const Bottom = styled.div`
   height: 30%;
   padding-left: 3%;
   .name {
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
     font-weight: 800;
     font-size: 1.3vw;
   }
@@ -127,6 +144,9 @@ const Bottom = styled.div`
     gap: 2%;
     align-items: center;
     button {
+      @media (max-width: 768px) {
+        width: 19%;
+      }
       height: 5vh;
       width: 10%;
       box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,

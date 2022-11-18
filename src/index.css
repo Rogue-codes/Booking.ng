@@ -9,3 +9,14 @@
   border: 2px solid #fff;
   border-radius: 12px;
 }
+.App{
+  position: relative;
+}
+@media (max-width:768px) {
+  .active{
+    height: 10vh!important;
+    margin-top: 5%;
+    margin-left: 0%!important;
+    padding: 2%!important;
+  }
+}

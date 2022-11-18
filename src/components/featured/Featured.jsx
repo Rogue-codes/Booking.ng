@@ -13,9 +13,7 @@ function Featured() {
             />
             <Text>
               <h1>Abuja</h1>
-              <p>
-                54 properties
-              </p>
+              <p>54 properties</p>
             </Text>
           </Cards>
 
@@ -30,31 +28,30 @@ function Featured() {
             </Text>
           </Cards>
           <Cards>
-            <img src="https://autojosh.com/wp-content/uploads/2020/08/onitsha-bridge-autojosh.jpg" alt="" />
+            <img
+              src="https://autojosh.com/wp-content/uploads/2020/08/onitsha-bridge-autojosh.jpg"
+              alt=""
+            />
             <Text>
               <h1>Onitsha</h1>
-              <p>
-                45 properties
-              </p>
+              <p>45 properties</p>
             </Text>
           </Cards>
         </Top>
 
         <Bottom>
           <CardsBtm>
-          <img
+            <img
               src="https://mytrip.ng/blog/wp-content/uploads/2021/01/Owerri.jpg"
               alt=""
             />
             <Text>
               <h1>Owerri</h1>
-              <p>
-                80 properties
-              </p>
+              <p>80 properties</p>
             </Text>
           </CardsBtm>
           <CardsBtm>
-          <img
+            <img
               src="https://buylandlagos.com/wp-content/uploads/2022/09/Best-Locations-for-Real-Estate-Investment-in-Rivers-State.jpg"
               alt=""
             />
@@ -80,8 +77,17 @@ const Container = styled.div`
 const Feature = styled.div`
   width: 90%;
   height: auto;
+  h1 {
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+  }
 `;
 const Top = styled.div`
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    height: auto;
+  }
   width: 100%;
   margin-top: 2%;
   height: 50vh;
@@ -90,6 +96,9 @@ const Top = styled.div`
   align-items: center;
 `;
 const Bottom = styled.div`
+  @media (max-width: 768px) {
+    height: auto;
+  }
   width: 100%;
   height: 50vh;
   margin-top: 2%;
@@ -98,6 +107,11 @@ const Bottom = styled.div`
   align-items: center;
 `;
 const Cards = styled.div`
+  @media (max-width: 768px) {
+    min-width: 49%;
+    height: 30vh;
+    margin-top: 2%;
+  }
   width: 32%;
   height: 100%;
   position: relative;
@@ -118,6 +132,10 @@ const Cards = styled.div`
   }
 `;
 const CardsBtm = styled.div`
+  @media (max-width: 768px) {
+    min-width: 49%;
+    height: 30vh;
+  }
   width: 49%;
   height: 100%;
   overflow: hidden;
@@ -141,17 +159,23 @@ const CardsBtm = styled.div`
 const Text = styled.div`
   width: 100%;
   height: auto;
-  background: linear-gradient(to top, transparent 0%, rgb(0,0,0,0.3) 50%);
+  background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
   color: #fff;
   position: absolute;
   padding: 2%;
   left: 0;
   bottom: 0;
   h1 {
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
     font-size: 1.8vw;
     font-weight: 800;
   }
   p {
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
     font-size: 1vw;
     font-weight: 500;
   }

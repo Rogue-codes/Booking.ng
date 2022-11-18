@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-function AuthButton({ content }) {
+function AuthButton({ content,type }) {
   return (
     <Container
       whileHover={{
@@ -9,6 +9,7 @@ function AuthButton({ content }) {
         transition: { duration: 0.5 },
       }}
       whileTap={{ scale: 0.9 }}
+      width={type ==="nav" ? "100%" : "40%"}
     >
       {content}
     </Container>
@@ -18,7 +19,10 @@ function AuthButton({ content }) {
 export default AuthButton;
 
 const Container = styled(motion.button)`
-  width: 40%;
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+  width: ${props => props.width};
   height: 6vh;
   cursor: pointer;
   font-size: 1.3vw;

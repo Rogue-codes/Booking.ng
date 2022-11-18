@@ -164,15 +164,21 @@ function HotelList() {
 
 export default HotelList;
 const Container = styled.div`
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+  }
   width: 90%;
   margin: auto;
-  /* border: 5px solid #000; */
   display: flex;
   gap: 2%;
   padding: 2%;
   position: relative;
 `;
 const Search = styled.div`
+  @media (max-width: 768px) {
+    margin-bottom: 5%;
+  }
   flex: 1px;
   height: auto;
   background: gold;
@@ -180,21 +186,29 @@ const Search = styled.div`
   border-radius: 10px;
   top: 10px;
   .dateBox {
+    @media (max-width: 768px) {
+      margin: 0;
+    }
     margin: 1% 5%;
-    /* position: absolute; */
   }
   h1 {
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
     font-size: 1.6vw;
     font-weight: 500;
     margin-left: 5%;
   }
   .label {
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
     font-size: 1vw;
     margin-left: 5%;
   }
   .date {
     cursor: pointer;
-    padding: 5%;
+    padding: 4%;
     background: white;
     display: flex;
     justify-content: center;
@@ -205,6 +219,11 @@ const Search = styled.div`
     margin-bottom: 2%;
   }
   .search {
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+      width: 90%;
+      margin-left: 5%;
+    }
     width: 50%;
     margin: 5% 25%;
     height: 8vh;
@@ -215,12 +234,14 @@ const Search = styled.div`
     font-size: 1.4vw;
   }
   input {
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
     display: block;
     width: 90%;
     margin: auto;
-    height: 8vh;
     font-size: 1.4vw;
-    padding: 2%;
+    padding: 4%;
     margin-bottom: 2%;
     border: none;
     &:focus {
@@ -235,9 +256,13 @@ const Search = styled.div`
     justify-content: center;
     align-items: center;
     gap: 5%;
-    padding: 5%;
+    padding: 4%;
     background: white;
-    /* margin-top: 5%; */
+    p {
+      @media (max-width: 767px) {
+        font-size: 0.9rem;
+      }
+    }
   }
   .option.active {
     border: 2px solid #00224f;
@@ -261,7 +286,7 @@ const Options = styled(motion.div)`
   height: auto;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   position: absolute;
-  top: 250px;
+  top: 280px;
   left: 35px;
   padding: 2% 0%;
   color: black;
@@ -277,6 +302,9 @@ const Select = styled.div`
   justify-content: center;
 `;
 const Left = styled.div`
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
   width: 40%;
   height: 8vh;
   display: flex;
@@ -284,6 +312,9 @@ const Left = styled.div`
   align-items: center;
 `;
 const Right = styled.div`
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
   width: 60%;
   height: 8vh;
   display: flex;
@@ -297,6 +328,10 @@ const Right = styled.div`
   }
 `;
 const Results = styled.div`
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
   width: 67%;
   height: 40vh;
   margin-top: 2%;
@@ -312,6 +347,9 @@ const Result = styled.div`
   padding: 2%;
 `;
 const Image = styled.div`
+  @media (max-width: 768px) {
+    flex: 2;
+  }
   height: 100%;
   flex: 1;
   img {
@@ -321,6 +359,9 @@ const Image = styled.div`
   }
 `;
 const Description = styled.div`
+  @media (max-width: 768px) {
+    flex: 2;
+  }
   height: 100%;
   flex: 2;
   padding: 2%;
@@ -329,15 +370,38 @@ const Description = styled.div`
     margin-top: 5%;
     padding: 2%;
     h1 {
+      @media (max-width: 768px) {
+        font-size: 0.6rem;
+      }
       font-size: 1.3vw;
     }
+    p {
+      @media (max-width: 768px) {
+        font-size: 0.6rem;
+      }
+    }
+  }
+  .name {
+    @media (max-width: 768px) {
+      font-size: 0.8rem;
+    }
+    font-size: 1.3vw;
+    font-weight: 800;
   }
 `;
 const Review = styled.div`
+  @media (max-width: 768px) {
+    flex: 2;
+    margin: 5% 0%;
+  }
   height: 100%;
   flex: 1;
 `;
 const Score = styled.div`
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    justify-content: flex-end;
+  }
   width: 100%;
   height: 30%;
   display: flex;
@@ -352,6 +416,11 @@ const Score = styled.div`
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }
+  .review-score {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
 `;
 const Price = styled.div`
   width: 100%;
@@ -362,15 +431,24 @@ const Price = styled.div`
     font-weight: 700;
   }
   span {
+    @media (max-width: 768px) {
+      font-size: 0.6rem;
+    }
     font-size: 1vw;
   }
 `;
 const Availability = styled.button`
+  @media (max-width: 768px) {
+    height: 8vh;
+    font-size: 0.5rem;
+  }
   width: 90%;
   margin-left: 5%;
   margin-top: 5%;
-  height: 22%;
+  height: 20%;
+  font-size: 1.2vw;
   border: none;
   background: #00224f;
   color: #fff;
+  cursor: pointer;
 `;

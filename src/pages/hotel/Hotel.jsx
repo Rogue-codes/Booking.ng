@@ -133,6 +133,9 @@ const Mid = styled.div`
   align-items: center;
 `;
 const Bottom = styled.div`
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   width: 100%;
   height: auto;
   margin-top: 2%;
@@ -142,14 +145,23 @@ const Bottom = styled.div`
   justify-content: center;
 `;
 const Desc = styled.div`
+    @media (max-width: 768px) {
+      flex: 2;
+    }
   flex: 3;
   height: 100%;
   padding: 2%;
   .name {
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
     font-size: 2vw;
     font-weight: 800;
   }
   .location {
+    @media (max-width: 768px) {
+      font-size: .7rem;
+    }
     display: flex;
     align-items: center;
     gap: 1%;
@@ -157,9 +169,17 @@ const Desc = styled.div`
   }
 `;
 const Reserve = styled.div`
+    @media (max-width: 768px) {
+      flex: 2;
+    }
   flex: 1;
   height: 100%;
   button {
+    @media (max-width: 768px) {
+      font-size: .8rem;
+      width: 100%;
+      margin: 8% 0%;
+    }
     width: 70%;
     margin: 5% 25%;
     height: 8vh;
@@ -186,12 +206,30 @@ const About = styled.div`
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
     rgb(209, 213, 219) 0px 0px 0px 1px inset;
   h1 {
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
     font-size: 2vw;
+  }
+  p {
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+    font-size: 1.2vw;
+    line-height: 30px;
   }
 `;
 const Book = styled.div`
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   flex: 1;
   button {
+    @media (max-width: 768px) {
+      width: 100%;
+    margin: 5% 0%;
+    font-size: 1rem;
+    }
     width: 70%;
     margin: 5% 25%;
     height: 8vh;

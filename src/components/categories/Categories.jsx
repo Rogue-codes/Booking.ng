@@ -75,24 +75,32 @@ export default Categories;
 const Container = styled.div`
   width: 100%;
   height: auto;
-  background: #f4f4f4;
   h1 {
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+      margin-bottom: 2%;
+    }
     margin-top: 2%;
     margin-left: 5%;
   }
 `;
 const Slider = styled.div`
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 2%;
+  }
   width: 90%;
-  height: 50vh;
-  /* border: 2px solid red; */
+  height: auto;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 2% 5%; */
   gap: 1%;
 `;
 const Card = styled.div`
+  @media (max-width: 768px) {
+    min-width: 48%;
+  }
   width: 20%;
   height: 35vh;
   border-radius: 12px;
