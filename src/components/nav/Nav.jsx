@@ -16,11 +16,7 @@ function Nav() {
 
   const variants = {
     open: { opacity: 1, x: 0 },
-    closed: { opacity: 0, x: "-100%", transition: { delay: 2.5 } },
-  };
-  const backdropVariants = {
-    open: { opacity: 1 },
-    closed: { opacity: 0, transition: { duration: 0.5 } },
+    closed: { opacity: 0, x: "-100%", transition: { delay: .5 } },
   };
   return (
     <Container>
@@ -45,11 +41,6 @@ function Nav() {
           <div class="hamburger-inner"></div>
         </div>
       </div>
-      <Backdrop
-        variants={backdropVariants}
-        animate={showWrapper ? "open" : "closed"}
-        onClick={()=>setshowWrapper(false)}
-      >
         <Wrapper animate={showWrapper ? "open" : "closed"} variants={variants}>
           <HeaderItems className="active">
             <FaBed size="1.52rem" />
@@ -80,7 +71,6 @@ function Nav() {
         <AuthButton content="sign Up" type="nav" />
       </AccountMobile>
         </Wrapper>
-      </Backdrop>
     </Container>
   );
 }
@@ -220,14 +210,6 @@ const HeaderItems = styled.div`
   }
 `;
 
-const Backdrop = styled(motion.div)`
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #060606d6;
-`;
 const AccountMobile = styled.div`
   display: flex;
   flex-direction: column;
