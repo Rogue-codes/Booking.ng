@@ -16,7 +16,7 @@ function Nav() {
 
   const variants = {
     open: { opacity: 1, x: 0 },
-    closed: { opacity: 0, x: "-100%", transition: { delay: .5 } },
+    closed: { opacity: 0, x: "-100%", transition: { delay: 0.5 } },
   };
   return (
     <Container>
@@ -41,7 +41,12 @@ function Nav() {
           <div class="hamburger-inner"></div>
         </div>
       </div>
-        <Wrapper animate={showWrapper ? "open" : "closed"} variants={variants}>
+      {showWrapper && (
+        <Wrapper
+          initial={false}
+          animate={showWrapper ? "open" : "close"}
+          variants={variants}
+        >
           <HeaderItems className="active">
             <FaBed size="1.52rem" />
             <p>stays</p>
@@ -67,10 +72,11 @@ function Nav() {
             <p>Restuarant</p>
           </HeaderItems>
           <AccountMobile>
-        <AuthButton content="sign In" type="nav"/>
-        <AuthButton content="sign Up" type="nav" />
-      </AccountMobile>
+            <AuthButton content="sign In" type="nav" />
+            <AuthButton content="sign Up" type="nav" />
+          </AccountMobile>
         </Wrapper>
+      )}
     </Container>
   );
 }
@@ -86,7 +92,7 @@ const Container = styled.nav`
   align-items: center;
   padding: 2%;
   position: relative;
-  .hamburger{
+  .hamburger {
     @media (max-width: 768px) {
       display: block;
     }
@@ -192,7 +198,7 @@ const Wrapper = styled(motion.div)`
   left: 0;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   background: #00224f;
-  z-index:999999999;
+  z-index: 999999999;
 `;
 const HeaderItems = styled.div`
   width: 80%;
@@ -213,8 +219,8 @@ const HeaderItems = styled.div`
 const AccountMobile = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15%!important;
+  gap: 15% !important;
   height: 20vh;
   justify-content: flex-start;
   padding: 2%;
-`
+`;
